@@ -1,0 +1,47 @@
+# 1. إعدادات الاتصال
+backend:
+  name: github
+  repo: Ace313780/AceWoodwork
+  branch: main
+  site_domain: ace-woodwork.netlify.app
+
+# 2. إعدادات الوسائط
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+# 3. الأقسام (Collections)
+collections:
+  # --- قسم معرض الصور العام (Gallery) ---
+  - name: "gallery"
+    label: "Main Gallery - معرض الصور العام"
+    folder: "content/gallery" # المجلد الذي يقرأ منه الكود في gallery.html
+    create: true
+    slug: "gallery-{{slug}}"
+    fields:
+      - { label: "English Title", name: "g_title_en", widget: "string", required: false }
+      - { label: "Arabic Title", name: "g_title_ar", widget: "string", required: false }
+      - { label: "Project Image", name: "image", widget: "image" }
+      - { label: "Date", name: "date", widget: "datetime" }
+
+  # --- قسم الخدمات (Services) ---
+  - name: "services"
+    label: "Services - معرض الخدمات"
+    folder: "content/services"
+    create: true
+    slug: "service-{{slug}}"
+    fields:
+      - { label: "Title English", name: "title", widget: "string" }
+      - { label: "Title Arabic", name: "title_ar", widget: "string" }
+      - { 
+          label: "Category", 
+          name: "category", 
+          widget: "select", 
+          options: [
+            { label: "Carpentry - نجارة", value: "carpentry" },
+            { label: "Kitchen - مطابخ", value: "kitchen" },
+            { label: "Cafe Shops - كافيهات", value: "cafe" },
+            { label: "Painting - طلاء", value: "painting" },
+            { label: "Decor - ديكور", value: "decor" }
+          ] 
+        }
+      - { label: "Featured Image", name: "image", widget: "image" }
